@@ -1,0 +1,7 @@
+/* Use installed Cyrillic-capable system fonts. No external font requests. */
+button,
+input,
+select,
+textarea {
+  font-family: Arial, "Helvetica Neue", sans-serif;
+}

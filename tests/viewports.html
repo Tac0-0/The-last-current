@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="bg">
+  <meta charset="utf-8" />
+  <title>Проверка на размерите — Последното течение</title>
+  <style>
+    body {
+      margin: 0;
+      background: #172c32;
+      color: #eee;
+      font:
+        14px Arial,
+        sans-serif;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px;
+      position: sticky;
+      top: 0;
+      background: #172c32;
+      z-index: 2;
+    }
+    button {
+      padding: 10px;
+      color: #143d41;
+      background: #d4dab5;
+      border: 0;
+      cursor: pointer;
+    }
+    iframe {
+      display: block;
+      margin: 16px auto;
+      border: 1px solid #59766b;
+      width: 1366px;
+      height: 768px;
+      background: #0d333e;
+    }
+  </style>
+  <nav>
+    <span>Размер на игровия прозорец:</span
+    ><button data-size="1366,768">1366 × 768</button
+    ><button data-size="1920,1080">1920 × 1080</button
+    ><button data-size="390,844">390 × 844</button>
+  </nav>
+  <iframe title="Преглед на играта" src="../"></iframe>
+  <script type="module">
+    document.querySelector("nav").addEventListener("click", (event) => {
+      const size = event.target.dataset.size;
+      if (!size) return;
+      const [width, height] = size.split(",");
+      Object.assign(document.querySelector("iframe").style, {
+        width: width + "px",
+        height: height + "px",
+      });
+    });
+  </script>
+</html>
